@@ -6,6 +6,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Profile;
+use App\Models\News;
+use App\Models\Comment;
+
 
 class User extends Authenticatable
 {
@@ -45,4 +49,24 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+    public function news()
+    {
+        return $this->hasMany(News::class);
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function likedNews()
+    {
+        return $this->belongsToMany(News::class, 'likes');
+    }
+
+
 }
