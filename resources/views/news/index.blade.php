@@ -21,7 +21,7 @@
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mb-20">
 
             @foreach($news as $item)
-                <div class="bg-red-600 rounded-lg shadow p-4 flex flex-col">
+                <div class="bg-white rounded-lg shadow p-4 flex flex-col">
 
                     {{-- AFBEELDING --}}
                     @if($item->image)

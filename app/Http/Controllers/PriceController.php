@@ -8,7 +8,7 @@ class PriceController extends Controller
 {
     public function index()
     {
-        $prices = Price::all();
+        $prices = Price::all()->groupBy('target_group');
         return view('prices', compact('prices'));
     }
 }
