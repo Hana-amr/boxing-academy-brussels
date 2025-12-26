@@ -54,7 +54,14 @@
                     </a>
                 </li>
             </ul>
-
+            @auth
+                @if(auth()->user()->is_admin)
+                    <a href="{{ route('admin.dashboard') }}"
+                       class="bg-gray-800 text-white px-3 py-1 rounded mr-3">
+                        Dashboard
+                    </a>
+                @endif
+            @endauth
             {{-- Rechtse login/registreer knoppen --}}
             <div class="flex items-center gap-4">
                 @guest

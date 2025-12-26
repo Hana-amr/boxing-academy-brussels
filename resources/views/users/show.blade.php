@@ -23,7 +23,7 @@
                 {{ $user->name }}
             </h1>
 
-            {{-- LEEFTIJD (OPTIONEEL) --}}
+            {{-- LEEFTIJD --}}
             @if($user->profile && $user->profile->birthday)
                 <p class="text-gray-600 mb-4">
                     Leeftijd:
@@ -42,6 +42,14 @@
                 </p>
             @endif
 
+            @auth
+                @if(auth()->id() === $user->id)
+                    <a href="{{ route('profile.edit') }}"
+                       class="inline-block mt-4 bg-green-700 text-white px-4 py-2 rounded">
+                        Profiel bewerken
+                    </a>
+                @endif
+            @endauth
         </div>
 
     </section>

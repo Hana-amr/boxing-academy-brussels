@@ -8,7 +8,8 @@ use App\Http\Controllers\PriceController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminUserController;
 
 //Route::get('/', function () {
   //  return view('welcome');
@@ -42,3 +43,30 @@ require __DIR__.'/auth.php';
 //user
 Route::get('/users/{user}', [UserController::class, 'show'])
     ->name('users.show');
+
+//admin
+
+Route::middleware(['auth', 'admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
+        Route::get('/', [AdminDashboardController::class, 'index'])
+            ->name('dashboard');
+
+        Route::get('/users', [AdminUserController::class, 'index'])
+            ->name('users.index');
+
+        Route::patch('/users/{user}/toggle-admin', [AdminUserController::class, 'toggleAdmin'])
+            ->name('users.toggleAdmin');
+
+        Route::get('/users/create', [AdminUserController::class, 'create'])
+            ->name('users.create');
+
+        Route::post('/users', [AdminUserController::class, 'store'])
+            ->name('users.store');
+
+        Route::delete('/users/{user}', [AdminUserController::class, 'destroy'])
+            ->name('users.destroy');
+
+    });
