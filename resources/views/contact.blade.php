@@ -22,6 +22,9 @@
             <select name="subject">
                 <option value="algemeen">Algemeen</option>
                 <option value="inschrijving">Inschrijving</option>
+                <option value="thaiboks dames">Thaiboks dames</option>
+                <option value="jeugd Muay Thai">Jeugd Muay Thai</option>
+                <option value="volwassenen">Volwassen</option>
                 <option value="tarieven">Tarieven</option>
             </select>
         </div>
