@@ -56,27 +56,30 @@
             </ul>
 
             {{-- Rechtse login/registreer knoppen --}}
-            <div class="flex space-x-2">
+            <div class="flex items-center gap-4">
                 @guest
                     <a href="{{ route('login') }}"
                        class="bg-green-900 hover:bg-green-800 text-white px-4 py-2 rounded-md transition">
                         Log in
-                    </a>
-                    <a href="{{ route('register') }}"
-                       class="bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded-md transition">
+                    </a>                    <a href="{{ route('register') }}" class="bg-green-600 px-3 py-1 rounded text-white">
                         Registreer
                     </a>
                 @else
-                    <span class="text-gray-300 mr-4">{{ Auth::user()->name }}</span>
-                    <form method="POST" action="{{ route('logout') }}" class="inline">
+                    <a href="{{ route('users.show', Auth::user()) }}"
+                       class="bg-green-900 hover:bg-green-800 text-white px-4 py-2 rounded-md transition">
+                        Mijn profiel
+                    </a>
+
+                    <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit"
-                                class="bg-red-700 hover:bg-red-600 text-white px-4 py-2 rounded-md transition">
+                                class="bg-red-600 px-3 py-1 rounded text-white">
                             Logout
                         </button>
                     </form>
                 @endguest
             </div>
+
 
         </nav>
     </header>
