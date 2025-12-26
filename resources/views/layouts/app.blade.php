@@ -53,6 +53,11 @@
                         Contact
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('profiles.index') }}"
+                       class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition">
+                        Profielen</a>
+                </li>
             </ul>
             @auth
                 @if(auth()->user()->is_admin)

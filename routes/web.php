@@ -8,6 +8,7 @@ use App\Http\Controllers\PriceController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminUserController;
 
@@ -45,6 +46,12 @@ Route::get('/users/{user}', [UserController::class, 'show'])
     ->name('users.show');
 
 //admin
+Route::get('/profiles', [UserProfileController::class, 'index'])
+    ->name('profiles.index');
+
+Route::get('/profiles/{user}', [UserProfileController::class, 'show'])
+    ->name('profiles.show');
+
 
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
