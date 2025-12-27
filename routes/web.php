@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminPriceController;
 use App\Http\Controllers\Admin\AdminNewsController;
+use App\Http\Controllers\Admin\AdminFaqCategoryController;
+use App\Http\Controllers\Admin\AdminFaqItemController;
 
 //Route::get('/', function () {
   //  return view('welcome');
@@ -106,4 +108,19 @@ Route::middleware(['auth', 'admin'])
         Route::put('/news/{news}', [AdminNewsController::class, 'update'])->name('news.update');
 
         Route::delete('/news/{news}', [AdminNewsController::class, 'destroy'])->name('news.destroy');
+
+        // FAQ categorieën
+        Route::get('/faq-categories', [AdminFaqCategoryController::class, 'index'])->name('faq.categories.index');
+        Route::get('/faq-categories/create', [AdminFaqCategoryController::class, 'create'])->name('faq.categories.create');
+        Route::post('/faq-categories', [AdminFaqCategoryController::class, 'store'])->name('faq.categories.store');
+        Route::get('/faq-categories/{category}/edit', [AdminFaqCategoryController::class, 'edit'])->name('faq.categories.edit');
+        Route::put('/faq-categories/{category}', [AdminFaqCategoryController::class, 'update'])->name('faq.categories.update');
+        Route::delete('/faq-categories/{category}', [AdminFaqCategoryController::class, 'destroy'])->name('faq.categories.destroy');
+
+// FAQ items (vragen)
+        Route::get('/faq-items/create', [AdminFaqItemController::class, 'create'])->name('faq.items.create');
+        Route::post('/faq-items', [AdminFaqItemController::class, 'store'])->name('faq.items.store');
+        Route::get('/faq-items/{item}/edit', [AdminFaqItemController::class, 'edit'])->name('faq.items.edit');
+        Route::put('/faq-items/{item}', [AdminFaqItemController::class, 'update'])->name('faq.items.update');
+        Route::delete('/faq-items/{item}', [AdminFaqItemController::class, 'destroy'])->name('faq.items.destroy');
     });
