@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 class="text-3xl font-bold mb-6">Contactberichten</h1>
+    <h1 class="text-3xl font-bold mb-6">Contactbeheer</h1>
 
     @if(session('success'))
         <div class="mb-4 p-3 bg-green-100 text-green-800 rounded">

@@ -76,7 +76,9 @@
                     <p class="text-sm mb-3">
                         {{ Str::limit($news->content, 100) }}
                     </p>
-
+                    <p class="text-xs text-gray-500 mb-2">
+                        {{ \Carbon\Carbon::parse($news->published_at)->format('d/m/Y') }}
+                    </p>
                 </div>
             @endforeach
         </div>
