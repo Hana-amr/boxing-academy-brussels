@@ -26,7 +26,7 @@
     <br>
     <a href="{{ route('admin.contact.index') }}"
        class="bg-blue-600 text-white px-3 py-1 rounded">
-        Contact
+        Contactbeheer
     </a>
 
 @endsection

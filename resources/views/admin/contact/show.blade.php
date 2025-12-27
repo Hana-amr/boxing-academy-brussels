@@ -26,11 +26,21 @@
         </div>
 
         <div class="mt-6 flex gap-3">
+
+            {{-- ANTWOORDEN --}}
+            <a href="mailto:{{ $contactMessage->email }}
+        ?subject=Re: {{ urlencode($contactMessage->subject) }}"
+               class="bg-green-600 text-white px-4 py-2 rounded">
+                Antwoorden
+            </a>
+
+            {{-- TERUG --}}
             <a href="{{ route('admin.contact.index') }}"
                class="bg-gray-600 text-white px-4 py-2 rounded">
                 Terug
             </a>
 
+            {{-- VERWIJDEREN --}}
             <form method="POST"
                   action="{{ route('admin.contact.destroy', $contactMessage) }}"
                   onsubmit="return confirm('Bericht definitief verwijderen?');">
@@ -42,6 +52,7 @@
                 </button>
             </form>
         </div>
+
 
     </div>
 
