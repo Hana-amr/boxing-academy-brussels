@@ -11,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\AdminPriceController;
 
 //Route::get('/', function () {
   //  return view('welcome');
@@ -76,4 +77,22 @@ Route::middleware(['auth', 'admin'])
         Route::delete('/users/{user}', [AdminUserController::class, 'destroy'])
             ->name('users.destroy');
 
+        //admin prices
+        Route::get('/prices', [AdminPriceController::class, 'index'])
+            ->name('prices.index');
+
+        Route::get('/prices/create', [AdminPriceController::class, 'create'])
+            ->name('prices.create');
+
+        Route::post('/prices', [AdminPriceController::class, 'store'])
+            ->name('prices.store');
+
+        Route::get('/prices/{price}/edit', [AdminPriceController::class, 'edit'])
+            ->name('prices.edit');
+
+        Route::put('/prices/{price}', [AdminPriceController::class, 'update'])
+            ->name('prices.update');
+
+        Route::delete('/prices/{price}', [AdminPriceController::class, 'destroy'])
+            ->name('prices.destroy');
     });
