@@ -12,6 +12,7 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminPriceController;
+use App\Http\Controllers\Admin\AdminNewsController;
 
 //Route::get('/', function () {
   //  return view('welcome');
@@ -95,4 +96,14 @@ Route::middleware(['auth', 'admin'])
 
         Route::delete('/prices/{price}', [AdminPriceController::class, 'destroy'])
             ->name('prices.destroy');
+
+        //admin news
+        Route::get('/news', [AdminNewsController::class, 'index'])->name('news.index');
+        Route::get('/news/create', [AdminNewsController::class, 'create'])->name('news.create');
+        Route::post('/news', [AdminNewsController::class, 'store'])->name('news.store');
+
+        Route::get('/news/{news}/edit', [AdminNewsController::class, 'edit'])->name('news.edit');
+        Route::put('/news/{news}', [AdminNewsController::class, 'update'])->name('news.update');
+
+        Route::delete('/news/{news}', [AdminNewsController::class, 'destroy'])->name('news.destroy');
     });

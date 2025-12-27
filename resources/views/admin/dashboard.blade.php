@@ -13,7 +13,10 @@
     <br>
     <br>
 
-        <a href="{{ route('admin.prices.index') }}" class="bg-blue-600 text-white px-3 py-1 rounded">Tarieven</a>
+        <a href="{{ route('admin.prices.index') }}" class="bg-blue-600 text-white px-3 py-1 rounded">Tarieven beheren</a>
+    <br>
+    <br>
+    <a href="{{ route('admin.news.index') }}" class="bg-blue-600 text-white px-3 py-1 rounded">Nieuwsbeheer</a>
 
 
 @endsection
