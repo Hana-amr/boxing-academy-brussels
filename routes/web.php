@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\AdminPriceController;
 use App\Http\Controllers\Admin\AdminNewsController;
 use App\Http\Controllers\Admin\AdminFaqCategoryController;
 use App\Http\Controllers\Admin\AdminFaqItemController;
+use App\Http\Controllers\Admin\AdminContactController;
 
 //Route::get('/', function () {
   //  return view('welcome');
@@ -123,4 +124,16 @@ Route::middleware(['auth', 'admin'])
         Route::get('/faq-items/{item}/edit', [AdminFaqItemController::class, 'edit'])->name('faq.items.edit');
         Route::put('/faq-items/{item}', [AdminFaqItemController::class, 'update'])->name('faq.items.update');
         Route::delete('/faq-items/{item}', [AdminFaqItemController::class, 'destroy'])->name('faq.items.destroy');
+
+
+        //admin contact inbox
+
+        Route::get('/contact', [AdminContactController::class, 'index'])
+            ->name('contact.index');
+
+        Route::get('/contact/{contactMessage}', [AdminContactController::class, 'show'])
+            ->name('contact.show');
+
+        Route::delete('/contact/{contactMessage}', [AdminContactController::class, 'destroy'])
+            ->name('contact.destroy');
     });
