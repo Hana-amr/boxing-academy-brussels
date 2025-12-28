@@ -5,6 +5,14 @@
     <h1 class="text-3xl font-bold mb-2">
         {{ $user->name }}
     </h1>
+    @if($user->profile && $user->profile->photo)
+        <div class="w-32 aspect-square mb-4 overflow-hidden rounded-lg">
+            <img src="{{ asset('storage/' . $user->profile->photo) }}"
+                 class="w-full h-full object-cover">
+        </div>
+    @else
+        <div class="w-32 aspect-square mb-4 bg-gray-300 rounded-lg"></div>
+    @endif
 
     {{-- LEEFTIJD --}}
     @if($user->profile && $user->profile->birthday)
