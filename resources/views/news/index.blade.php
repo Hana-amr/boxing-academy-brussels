@@ -21,7 +21,8 @@
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 mb-20">
 
             @foreach($news as $item)
-                <div class="bg-white rounded-lg shadow p-4 flex flex-col">
+                <a href="{{ route('news.show', $item) }}"
+                   class="block bg-white rounded-lg shadow p-4 flex flex-col hover:shadow-lg transition">
 
                     {{-- AFBEELDING --}}
                     @if($item->image)
@@ -43,16 +44,14 @@
                         {{ Str::limit($item->content, 120) }}
                     </p>
 
-                    {{-- FOOTER --}}
-                    <div class="flex justify-between items-center text-sm text-gray-700">
-                <span>
-                    {{ \Carbon\Carbon::parse($item->published_at)->format('d/m/Y') }}
-                </span>
-
+                    {{-- DATUM --}}
+                    <div class="text-sm text-gray-700">
+                        {{ \Carbon\Carbon::parse($item->published_at)->format('d/m/Y') }}
                     </div>
 
-                </div>
+                </a>
             @endforeach
+
 
         </div>
     @endif
