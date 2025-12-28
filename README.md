@@ -1,59 +1,88 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+# Projectbeschrijving
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Dit project is een dynamische website voor **Boxing Academy Brussels**, ontwikkeld met het Laravel framework. De website biedt bezoekers informatie over de club, tarieven, nieuws, FAQ en de mogelijkheid om contact op te nemen.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Daarnaast bevat het project een **admin-gedeelte** waar beheerders verschillende onderdelen van de website kunnen beheren, zoals gebruikers, tarieven, nieuws, FAQ en contactberichten.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Dit project werd ontwikkeld in het kader van een schoolopdracht.
 
-## Learning Laravel
+## Installatiehandleiding
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Stappen
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. Clone de repository:
+   -> git clone <URL-van-de-repository>
+   -> cd <naam-van-de-repository>
 
-## Laravel Sponsors
+2. Installeer PHP dependencies:
+   -> composer install
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. Installeer frontend dependencies:
+   -> npm install
 
-### Premium Partners
+4. Maak het environment bestand aan
+   -> cp .env.example .env
+   -> php artisan key:generate
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+5. Database instellen (SQLite)
+   -> touch database/database.sqlite
+   -> php artisan migrate --seed
 
-## Contributing
+6. Mail configuratie (Voor het testen van e-mails wordt Mailtrap gebruikt.  
+   Dit is enkel nodig om te controleren of de admin e-mails ontvangt bij nieuwe contactberichten.)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+-> Gebruik Mailtrap en voeg de SMTP-gegevens toe aan het .env bestand.
 
-## Code of Conduct
+7. Start de ontwikkelserver:
+   -> npm run dev
+   -> php artisan serve
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Functionaliteiten
 
-## Security Vulnerabilities
+### Authenticatie
+- Registreren
+- Inloggen / uitloggen
+- Wachtwoord reset
+- Rolonderscheid tussen gebruiker en admin
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Publieke pagina's
+- Homepagina
+- Nieuws overzicht en detailpagina
+- Tarievenpagina
+- FAQ-pagina met categorieën en vragen
+- Contactformulier
+- Publieke gebruikersprofielen bekijken
+- Aantal likes op nieuws zien
+- (Aantal)Reacties zien
 
-## License
+### Ingelogde (gewone) gebruiker
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- (Alle publieke pagina's)
+- Eigen profiel: bekijken en aanpassen
+- Nieuws liken
+- Reacties op nieuws geven
+
+### Admin
+Website:
+- Alle publieke pagina's + Mijn profiel zoals gebruiker
+
+Dashboard:
+- Gebruikersbeheer: user toevoegen, admin maken, verwijderen
+- Tarievenbeheer: toevoegen, bewerken, verwijderen
+- Nieuwsbeheer: toevoegen, bewerken, verwijderen
+- FAQ-beheer: categorieën en vragen
+- Contactbeheer:
+    - Admin ontvangt e-mail bij nieuw contactbericht
+    - Admin kan berichten bekijken en verwijderen
+    - Admin kan antwoorden via e-mail
+
+# Bronnen:
+
+- W3schools: https://www.w3schools.com/cssref/css_colors.php
+- Laravel documentatie: https://laravel.com/docs/12.x/installation
+- Mailtrap documentatie: https://docs.mailtrap.io/
+- Tailwind CSS: https://tailwindcss.com/
+- Emoji's: https://getemoji.com/ 
+
