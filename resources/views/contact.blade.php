@@ -25,7 +25,7 @@
                         name="name"
                         placeholder="Naam en voornaam"
                         value="{{ old('name') }}"
-                        class="w-full p-3 rounded bg-white-800 text-white"
+                        class="w-full p-3 rounded bg-white-800 text-black"
                     >
 
                     <input
@@ -33,7 +33,7 @@
                         name="email"
                         placeholder="E-mail"
                         value="{{ old('email') }}"
-                        class="w-full p-3 rounded bg-white-800 text-white"
+                        class="w-full p-3 rounded bg-white-800 text-black"
                     >
                 </div>
 

@@ -1,5 +1,3 @@
-
-
 # Projectbeschrijving
 
 Dit project is een dynamische website voor **Boxing Academy Brussels**, ontwikkeld met het Laravel framework. De website biedt bezoekers informatie over de club, tarieven, nieuws, FAQ en de mogelijkheid om contact op te nemen.
