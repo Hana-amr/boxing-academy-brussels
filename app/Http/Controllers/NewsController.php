@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\News;
+use App\Models\Comment;
+
 
 class NewsController extends Controller
 {
@@ -36,4 +38,18 @@ class NewsController extends Controller
         return back();
     }
 
+    public function storeComment(Request $request, News $news)
+    {
+        $request->validate([
+            'content' => 'required|string|max:1000',
+        ]);
+
+        Comment::create([
+            'user_id' => Auth::id(),
+            'news_id' => $news->id,
+            'content' => $request->content,
+        ]);
+
+        return back();
+    }
 }

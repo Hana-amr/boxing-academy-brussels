@@ -33,6 +33,11 @@ Route::middleware('auth')->group(function () {
    //likes op nieuws
     Route::post('/news/{news}/like', [NewsController::class, 'toggleLike'])
         ->name('news.like');
+
+    // comments
+
+    Route::post('/news/{news}/comments', [NewsController::class, 'storeComment'])
+        ->name('news.comments.store');
 });
 
 //Publieke pagina's
